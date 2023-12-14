@@ -1,0 +1,727 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<head><script>if(navigator.userAgent.match(/MSIE|Internet Explorer/i)||navigator.userAgent.match(/Trident\/7\..*?rv:11/i)){var href=document.location.href;if(!href.match(/[?&]nowprocket/)){if(href.indexOf("?")==-1){if(href.indexOf("#")==-1){document.location.href=href+"?nowprocket=1"}else{document.location.href=href.replace("#","?nowprocket=1#")}}else{if(href.indexOf("#")==-1){document.location.href=href+"&nowprocket=1"}else{document.location.href=href.replace("#","&nowprocket=1#")}}}}</script><script>class RocketLazyLoadScripts{constructor(e){this.triggerEvents=e,this.eventOptions={passive:!0},this.userEventListener=this.triggerListener.bind(this),this.delayedScripts={normal:[],async:[],defer:[]},this.allJQueries=[]}_addUserInteractionListener(e){this.triggerEvents.forEach((t=>window.addEventListener(t,e.userEventListener,e.eventOptions)))}_removeUserInteractionListener(e){this.triggerEvents.forEach((t=>window.removeEventListener(t,e.userEventListener,e.eventOptions)))}triggerListener(){this._removeUserInteractionListener(this),"loading"===document.readyState?document.addEventListener("DOMContentLoaded",this._loadEverythingNow.bind(this)):this._loadEverythingNow()}async _loadEverythingNow(){this._delayEventListeners(),this._delayJQueryReady(this),this._handleDocumentWrite(),this._registerAllDelayedScripts(),this._preloadAllScripts(),await this._loadScriptsFromList(this.delayedScripts.normal),await this._loadScriptsFromList(this.delayedScripts.defer),await this._loadScriptsFromList(this.delayedScripts.async),await this._triggerDOMContentLoaded(),await this._triggerWindowLoad(),window.dispatchEvent(new Event("rocket-allScriptsLoaded"))}_registerAllDelayedScripts(){document.querySelectorAll("script[type=rocketlazyloadscript]").forEach((e=>{e.hasAttribute("src")?e.hasAttribute("async")&&!1!==e.async?this.delayedScripts.async.push(e):e.hasAttribute("defer")&&!1!==e.defer||"module"===e.getAttribute("data-rocket-type")?this.delayedScripts.defer.push(e):this.delayedScripts.normal.push(e):this.delayedScripts.normal.push(e)}))}async _transformScript(e){return await this._requestAnimFrame(),new Promise((t=>{const n=document.createElement("script");let i;[...e.attributes].forEach((e=>{let t=e.nodeName;"type"!==t&&("data-rocket-type"===t&&(t="type",i=e.nodeValue),n.setAttribute(t,e.nodeValue))})),e.hasAttribute("src")&&this._isValidScriptType(i)?(n.addEventListener("load",t),n.addEventListener("error",t)):(n.text=e.text,t()),e.parentNode.replaceChild(n,e)}))}_isValidScriptType(e){return!e||""===e||"string"==typeof e&&["text/javascript","text/x-javascript","text/ecmascript","text/jscript","application/javascript","application/x-javascript","application/ecmascript","application/jscript","module"].includes(e.toLowerCase())}async _loadScriptsFromList(e){const t=e.shift();return t?(await this._transformScript(t),this._loadScriptsFromList(e)):Promise.resolve()}_preloadAllScripts(){var e=document.createDocumentFragment();[...this.delayedScripts.normal,...this.delayedScripts.defer,...this.delayedScripts.async].forEach((t=>{const n=t.getAttribute("src");if(n){const t=document.createElement("link");t.href=n,t.rel="preload",t.as="script",e.appendChild(t)}})),document.head.appendChild(e)}_delayEventListeners(){let e={};function t(t,n){!function(t){function n(n){return e[t].eventsToRewrite.indexOf(n)>=0?"rocket-"+n:n}e[t]||(e[t]={originalFunctions:{add:t.addEventListener,remove:t.removeEventListener},eventsToRewrite:[]},t.addEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.add.apply(t,arguments)},t.removeEventListener=function(){arguments[0]=n(arguments[0]),e[t].originalFunctions.remove.apply(t,arguments)})}(t),e[t].eventsToRewrite.push(n)}function n(e,t){let n=e[t];Object.defineProperty(e,t,{get:()=>n||function(){},set(i){e["rocket"+t]=n=i}})}t(document,"DOMContentLoaded"),t(window,"DOMContentLoaded"),t(window,"load"),t(window,"pageshow"),t(document,"readystatechange"),n(document,"onreadystatechange"),n(window,"onload"),n(window,"onpageshow")}_delayJQueryReady(e){let t=window.jQuery;Object.defineProperty(window,"jQuery",{get:()=>t,set(n){if(n&&n.fn&&!e.allJQueries.includes(n)){n.fn.ready=n.fn.init.prototype.ready=function(t){e.domReadyFired?t.bind(document)(n):document.addEventListener("rocket-DOMContentLoaded",(()=>t.bind(document)(n)))};const t=n.fn.on;n.fn.on=n.fn.init.prototype.on=function(){if(this[0]===window){function e(e){return e.split(" ").map((e=>"load"===e||0===e.indexOf("load.")?"rocket-jquery-load":e)).join(" ")}"string"==typeof arguments[0]||arguments[0]instanceof String?arguments[0]=e(arguments[0]):"object"==typeof arguments[0]&&Object.keys(arguments[0]).forEach((t=>{delete Object.assign(arguments[0],{[e(t)]:arguments[0][t]})[t]}))}return t.apply(this,arguments),this},e.allJQueries.push(n)}t=n}})}async _triggerDOMContentLoaded(){this.domReadyFired=!0,await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-DOMContentLoaded")),await this._requestAnimFrame(),document.dispatchEvent(new Event("rocket-readystatechange")),await this._requestAnimFrame(),document.rocketonreadystatechange&&document.rocketonreadystatechange()}async _triggerWindowLoad(){await this._requestAnimFrame(),window.dispatchEvent(new Event("rocket-load")),await this._requestAnimFrame(),window.rocketonload&&window.rocketonload(),await this._requestAnimFrame(),this.allJQueries.forEach((e=>e(window).trigger("rocket-jquery-load"))),window.dispatchEvent(new Event("rocket-pageshow")),await this._requestAnimFrame(),window.rocketonpageshow&&window.rocketonpageshow()}_handleDocumentWrite(){const e=new Map;document.write=document.writeln=function(t){const n=document.currentScript;n||console.error("WPRocket unable to document.write this: "+t);const i=document.createRange(),r=n.parentElement;let a=e.get(n);void 0===a&&(a=n.nextSibling,e.set(n,a));const o=document.createDocumentFragment();i.setStart(o,0),o.appendChild(i.createContextualFragment(t)),r.insertBefore(o,a)}}async _requestAnimFrame(){return new Promise((e=>requestAnimationFrame(e)))}static run(){const e=new RocketLazyLoadScripts(["keydown","mousemove","touchmove","touchstart","touchend","wheel"]);e._addUserInteractionListener(e)}}RocketLazyLoadScripts.run();
+</script>
+<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="profile" href="https://gmpg.org/xfn/11" />
+<link rel="alternate" type="application/rss+xml" title="PNG All RSS Feed" href="https://www.pngall.com/feed/" />
+<link rel="alternate" type="application/atom+xml" title="PNG All Atom Feed" href="https://www.pngall.com/feed/atom/" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+<link rel="pingback" href="https://www.pngall.com/xmlrpc.php" />
+<link rel="alternate" hreflang="en" href="https://www.pngall.com" />
+<link rel="alternate" hreflang="pt" href="https://www.pngall.com/pt/" />
+<link rel="alternate" hreflang="ru" href="https://www.pngall.com/ru/" />
+<link rel="alternate" hreflang="es" href="https://www.pngall.com/es/" />
+<link rel="alternate" hreflang="th" href="https://www.pngall.com/th/" />
+<link rel="alternate" hreflang="de" href="https://www.pngall.com/de/" />
+<link rel="alternate" hreflang="ar" href="https://www.pngall.com/ar/" />
+<link rel="alternate" hreflang="fr" href="https://www.pngall.com/fr/" />
+<link rel="alternate" hreflang="id" href="https://www.pngall.com/id/" />
+<link rel="alternate" hreflang="it" href="https://www.pngall.com/it/" />
+<link rel="alternate" hreflang="nl" href="https://www.pngall.com/nl/" />
+<link rel="alternate" hreflang="tl" href="https://www.pngall.com/tl/" />
+<link rel="alternate" hreflang="tr" href="https://www.pngall.com/tr/" />
+<!--[if lt IE 9]>
+	<script src="https://www.pngall.com/wp-content/themes/boxes/js/css3-mediaqueries.js"></script>
+<![endif]-->
+
+<!--[if lt IE 7]>
+	<link rel="stylesheet" href="https://www.pngall.com/wp-content/themes/boxes/css/font-awesome-ie7.min.css">
+<![endif]-->
+
+		<!-- All in One SEO 4.4.3 - aioseo.com -->
+		<title>Arizona State University (ASU) Logo PNG Transparent Images - PNG All</title><link rel="stylesheet" href="https://www.pngall.com/wp-content/cache/min/1/1b25009649f9ca8ca386714467a91c90.css" media="all" data-minify="1" />
+		<meta name="description" content="The Arizona State University (ASU) logo is a symbol that represents the institution’s identity and branding. A logo is a crucial aspect of a brand’s marketing strategy as it represents the institution’s values, mission, and vision. ASU’s logo is an essential part of its history and tradition that reflects the institution’s diverse culture, innovation, and excellence. History of ASU Logo The Arizona State University (ASU) logo" />
+		<meta name="robots" content="max-image-preview:large" />
+		<meta name="google-site-verification" content="PPv3unHKMV0IfV8I8_E3PqI6ZJzvb6SY-seidK9kAEQ" />
+		<link rel="canonical" href="https://www.pngall.com/arizona-state-university-asulogo-png/" />
+		<meta name="generator" content="All in One SEO (AIOSEO) 4.4.3" />
+
+		<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TVY252S8FQ"></script>
+<script type="rocketlazyloadscript">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-TVY252S8FQ');
+</script>
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:site_name" content="PNG All -" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Arizona State University (ASU) Logo PNG Transparent Images - PNG All" />
+		<meta property="og:description" content="The Arizona State University (ASU) logo is a symbol that represents the institution’s identity and branding. A logo is a crucial aspect of a brand’s marketing strategy as it represents the institution’s values, mission, and vision. ASU’s logo is an essential part of its history and tradition that reflects the institution’s diverse culture, innovation, and excellence. History of ASU Logo The Arizona State University (ASU) logo" />
+		<meta property="og:url" content="https://www.pngall.com/arizona-state-university-asulogo-png/" />
+		<meta property="article:published_time" content="2023-10-09T10:34:47+00:00" />
+		<meta property="article:modified_time" content="2023-10-09T10:34:47+00:00" />
+		<meta property="article:publisher" content="https://www.facebook.com/pngall" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@pngallimg" />
+		<meta name="twitter:title" content="Arizona State University (ASU) Logo PNG Transparent Images - PNG All" />
+		<meta name="twitter:description" content="The Arizona State University (ASU) logo is a symbol that represents the institution’s identity and branding. A logo is a crucial aspect of a brand’s marketing strategy as it represents the institution’s values, mission, and vision. ASU’s logo is an essential part of its history and tradition that reflects the institution’s diverse culture, innovation, and excellence. History of ASU Logo The Arizona State University (ASU) logo" />
+		<meta name="twitter:creator" content="@pngallimg" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"BlogPosting","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#blogposting","name":"Arizona State University (ASU) Logo PNG Transparent Images - PNG All","headline":"Arizona State University (ASU) Logo PNG Transparent Images","author":{"@id":"https:\/\/www.pngall.com\/author\/rojal\/#author"},"publisher":{"@id":"https:\/\/www.pngall.com\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/www.pngall.com\/wp-content\/uploads\/15\/Arizona-State-University-ASU-Logo-PNG-Pic.png","width":659,"height":900,"caption":"Arizona State University (ASU) Logo PNG Pic"},"datePublished":"2023-10-09T10:34:47+00:00","dateModified":"2023-10-09T10:34:47+00:00","inLanguage":"en-US","mainEntityOfPage":{"@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#webpage"},"isPartOf":{"@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#webpage"},"articleSection":"PNG Library"},{"@type":"BreadcrumbList","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.pngall.com\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.pngall.com\/","name":"Home","description":"PNGAll is a PNG web-blog where you can find best high-quality free PNG images on various categories such as animals, food, nature, things, objects and more.","url":"https:\/\/www.pngall.com\/"},"nextItem":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/","name":"Arizona State University (ASU) Logo PNG Transparent Images","description":"The Arizona State University (ASU) logo is a symbol that represents the institution\u2019s identity and branding. A logo is a crucial aspect of a brand\u2019s marketing strategy as it represents the institution\u2019s values, mission, and vision. ASU\u2019s logo is an essential part of its history and tradition that reflects the institution\u2019s diverse culture, innovation, and excellence. History of ASU Logo The Arizona State University (ASU) logo","url":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/"},"previousItem":"https:\/\/www.pngall.com\/#listItem"}]},{"@type":"Organization","@id":"https:\/\/www.pngall.com\/#organization","name":"PNG All","url":"https:\/\/www.pngall.com\/","sameAs":["https:\/\/www.facebook.com\/pngall","https:\/\/www.twitter.com\/pngallimg"]},{"@type":"Person","@id":"https:\/\/www.pngall.com\/author\/rojal\/#author","url":"https:\/\/www.pngall.com\/author\/rojal\/","name":"Rojal","image":{"@type":"ImageObject","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/84d5cc5721a1ce3a23a196f35fba7267?s=96&d=mm&r=g","width":96,"height":96,"caption":"Rojal"}},{"@type":"WebPage","@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#webpage","url":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/","name":"Arizona State University (ASU) Logo PNG Transparent Images - PNG All","description":"The Arizona State University (ASU) logo is a symbol that represents the institution\u2019s identity and branding. A logo is a crucial aspect of a brand\u2019s marketing strategy as it represents the institution\u2019s values, mission, and vision. ASU\u2019s logo is an essential part of its history and tradition that reflects the institution\u2019s diverse culture, innovation, and excellence. History of ASU Logo The Arizona State University (ASU) logo","inLanguage":"en-US","isPartOf":{"@id":"https:\/\/www.pngall.com\/#website"},"breadcrumb":{"@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#breadcrumblist"},"author":{"@id":"https:\/\/www.pngall.com\/author\/rojal\/#author"},"creator":{"@id":"https:\/\/www.pngall.com\/author\/rojal\/#author"},"image":{"@type":"ImageObject","url":"https:\/\/www.pngall.com\/wp-content\/uploads\/15\/Arizona-State-University-ASU-Logo-PNG-Pic.png","@id":"https:\/\/www.pngall.com\/#mainImage","width":659,"height":900,"caption":"Arizona State University (ASU) Logo PNG Pic"},"primaryImageOfPage":{"@id":"https:\/\/www.pngall.com\/arizona-state-university-asulogo-png\/#mainImage"},"datePublished":"2023-10-09T10:34:47+00:00","dateModified":"2023-10-09T10:34:47+00:00"},{"@type":"WebSite","@id":"https:\/\/www.pngall.com\/#website","url":"https:\/\/www.pngall.com\/","name":"PNG All","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.pngall.com\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; Feed" href="https://www.pngall.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; Comments Feed" href="https://www.pngall.com/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="PNG All &raquo; Arizona State University (ASU) Logo PNG Transparent Images Comments Feed" href="https://www.pngall.com/arizona-state-university-asulogo-png/feed/" />
+<meta content="boxes v.1.0" name="generator"/><meta content="Theme Junkie Framework v.1.0.5" name="generator"/><style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	
+
+
+<style id='global-styles-inline-css' type='text/css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+
+
+
+
+
+
+
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery.min.js?ver=1.8.3' id='jquery-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery-ui-1.8.5.custom.min.js?ver=1.8.5' id='jquery-ui-js'></script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/themes/boxes/js/jquery.flexslider-min.js?ver=2.2.0' id='jquery-flexslider-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/superfish.js?ver=1697631667' id='jquery-superfish-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/html5.js?ver=1697631667' id='html5-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/js/custom.js?ver=1697631667' id='jquery-custom-js'></script>
+<script type="rocketlazyloadscript" data-minify="1" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-content/cache/min/1/wp-content/themes/boxes/functions/shortcodes/shortcodes.js?ver=1697631667' id='tj_shortcodes-js'></script>
+<link rel="https://api.w.org/" href="https://www.pngall.com/wp-json/" /><link rel="alternate" type="application/json" href="https://www.pngall.com/wp-json/wp/v2/posts/143880" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.pngall.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.pngall.com/wp-includes/wlwmanifest.xml" />
+
+<link rel='shortlink' href='https://www.pngall.com/?p=143880' />
+			<style>
+			#related_posts_thumbnails li{
+				border-right: 1px solid #DDDDDD;
+				background-color: #FFFFFF			}
+			#related_posts_thumbnails li:hover{
+				background-color: #EEEEEF;
+			}
+			.relpost_content{
+				font-size:	16px;
+				color: 		#333333;
+			}
+			.relpost-block-single{
+				background-color: #FFFFFF;
+				border-right: 1px solid  #DDDDDD;
+				border-left: 1px solid  #DDDDDD;
+				margin-right: -1px;
+			}
+			.relpost-block-single:hover{
+				background-color: #EEEEEF;
+			}
+		</style>
+
+	<!-- Custom Styling -->
+<style type="text/css">
+body { }        
+.flexslider {display: none;}          
+</style>
+<noscript><style id="rocket-lazyload-nojs-css">.rll-youtube-player, [data-lazy-src]{display:none !important;}</style></noscript>	<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157" crossorigin="anonymous"></script>
+	</head>
+<body class="post-template-default single single-post postid-143880 single-format-standard chrome">
+		<script type="rocketlazyloadscript" async data-cfasync="false">
+       const url = new URL(window.location.href);
+       const clickID = url.searchParams.get("click_id");
+       const sourceID = url.searchParams.get("source_id");
+
+       const s = document.createElement("script");
+       s.dataset.cfasync = "false";
+       s.src = "https://system-notify.app/f/sdk.js?z=415910";
+       s.onload = (opts) => {
+           opts.zoneID = 415910;
+           opts.extClickID = clickID;
+           opts.subID1 = sourceID;
+           opts.actions.onPermissionGranted = () => {};
+           opts.actions.onPermissionDenied = () => {};
+           opts.actions.onAlreadySubscribed = () => {};
+           opts.actions.onError = () => {};
+       };
+       document.head.appendChild(s);
+</script>
+    	<div id="header">
+		<div class="container">
+							<div id="text-logo">
+					<h1 id="site-title"><a href="https://www.pngall.com">PNG All</a></h1>
+					<p id="site-desc"></p>
+				</div><!-- #text-logo -->
+						<div id="primary-nav" class="container">
+				<ul id="primary-navigation" class="nav"><li id="menu-item-14775" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14775"><a href="https://www.pngall.com/">Home</a></li>
+<li id="menu-item-107055" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107055"><a href="https://www.pngall.com/categories/">Categories</a></li>
+<li id="menu-item-14776" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14776"><a href="https://www.pngall.com/about/">About</a></li>
+<li id="menu-item-105423" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105423"><a href="https://www.pngall.com/dmca/">DMCA</a></li>
+<li id="menu-item-14777" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14777"><a href="https://www.pngall.com/contact/">Contact</a></li>
+<li id="menu-item-105424" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105424"><a href="https://www.pngall.com/privacy-policy/">Privacy Policy</a></li>
+</ul>				
+								
+					<div class="btn-nav-right">
+						<i class="icon-reorder"></i> Menu 
+					</div><!-- .btn-nav-right -->
+							
+			</div><!-- #primary-nav -->
+			
+						
+			<div class="clear"></div>
+	
+		</div><!-- .container -->
+	</div><!-- #header -->
+		
+						
+
+			<nav id="mobile-menu">
+				<div class="container">
+					<ul id="responsive-menu" class="ul"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-14775"><a href="https://www.pngall.com/">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-107055"><a href="https://www.pngall.com/categories/">Categories</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14776"><a href="https://www.pngall.com/about/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105423"><a href="https://www.pngall.com/dmca/">DMCA</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14777"><a href="https://www.pngall.com/contact/">Contact</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105424"><a href="https://www.pngall.com/privacy-policy/">Privacy Policy</a></li>
+</ul>				</div>
+				<!-- .container -->
+			</nav><!-- #mobile-menu -->
+							<div id="main" class="container">	<div id="content">
+	
+		
+			<article id="post-143880" class="post-143880 post type-post status-publish format-standard has-post-thumbnail hentry category-png-library">
+				
+								<h1 class="entry-title">Arizona State University (ASU) Logo PNG Transparent Images</h1>
+<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/"> <!-- Breadcrumb NavXT 7.2.0 -->
+<span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to Home Page" href="https://www.pngall.com" class="home" ><span property="name">Home</span></a><meta property="position" content="1"></span> &gt; <span property="itemListElement" typeof="ListItem"><a property="item" typeof="WebPage" title="Go to the PNG Library category" href="https://www.pngall.com/category/png-library/" class="taxonomy category" ><span property="name">PNG Library</span></a><meta property="position" content="2"></span> &gt; <span class="post post-post current-item">Arizona State University (ASU) Logo PNG Transparent Images</span> </div>
+
+				<div class="entry-header">
+					<span class="author-link">Submitted by <a href="https://www.pngall.com/author/rojal/" title="Posts by Rojal" rel="author">Rojal</a></span> on Oct 9, 2023				</div><!-- .entry-header -->
+				<div class="clear"></div>		
+						
+				
+				<div class="clear"></div>
+
+													
+									
+									
+					<div class="entry-content">
+										<p>
+					Download top and best high-quality free <strong>Arizona State University (ASU) Logo PNG Transparent Images</strong> backgrounds available in various sizes. To view the full PNG size resolution click on any of the below image thumbnail.
+					<br>
+					<br>
+					<strong>License Info</strong>: <a href="https://creativecommons.org/licenses/by-nc/4.0/" rel="license" target="_blank">Creative Commons 4.0 BY-NC</a>
+<br>
+						
+				</p>
+						<div class="7e5d63c6540feda5e227514ef81ca30a" data-index="1" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+<p>The Arizona State <a href="https://www.pngall.com/university-png" target="_blank" rel="noopener">University</a> (ASU) logo is a symbol that represents the <a href="https://www.pngall.com/institution-png" target="_blank" rel="noopener">institution</a>’s identity and branding. A logo is a crucial aspect of a brand’s <a href="https://www.pngall.com/marketing-png" target="_blank" rel="noopener">marketing</a> <a href="https://www.pngall.com/strategy-png" target="_blank" rel="noopener">strategy</a> as it represents the institution’s values, <a href="https://www.pngall.com/mission-png" target="_blank" rel="noopener">mission</a>, and <a href="https://www.pngall.com/vision-png" target="_blank" rel="noopener">vision</a>. ASU’s logo is an essential part of its <a href="https://www.pngall.com/history-png" target="_blank" rel="noopener">history</a> and tradition that reflects the institution’s diverse culture, <a href="https://www.pngall.com/innovation-png" target="_blank" rel="noopener">innovation</a>, and excellence.</p>
+<h2>History of ASU Logo</h2>
+<p>The Arizona State University (ASU) logo has undergone several changes throughout its history. The first logo was created in 1936 by designer and <a href="https://www.pngall.com/student-png" target="_blank" rel="noopener">student</a> Marvin D. Johnson. The logo featured a <a href="https://www.pngall.com/torch-png" target="_blank" rel="noopener">torch</a> with the letters “Tempe Normal” above it. In 1945, the institution changed its name to Arizona State <a href="https://www.pngall.com/college-png" target="_blank" rel="noopener">College</a>, and the logo was updated to include the letters “ASC.” In 1958, the college became a university, and the logo was once again updated to reflect the change.</p>
+<p>The current ASU logo was introduced in 2011. The new logo was designed to reflect ASU’s commitment to innovation and sustainability. The logo features a sunburst with the letters “ASU” written in bold lettering. The logo is available in several colors, including maroon and <a href="https://www.pngall.com/gold-png" target="_blank" rel="noopener">gold</a>, gray and white, and black and white.</p>
+<h2>Design of ASU Logo</h2>
+<p>The ASU logo is designed to be easily recognizable and memorable. The logo features a sunburst with the letters “ASU” written in bold lettering. The sunburst represents ASU’s <a href="https://www.pngall.com/location-png" target="_blank" rel="noopener">location</a> in the sunny state of Arizona, while the bold lettering reflects the institution’s strength and excellence. The logo is available in several <a href="https://www.pngall.com/color-png" target="_blank" rel="noopener">color</a> variations, including maroon and gold, gray and white, and black and white. The colors were chosen to represent ASU’s identity and branding.</p><div class="7e5d63c6540feda5e227514ef81ca30a" data-index="1" style="float: none; margin:10px 0 10px 0; text-align:center;">
+<p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p>
+</div>
+
+<h2>Symbolism of ASU Logo</h2>
+<p>The ASU logo is a symbol that represents the institution’s values, mission, and vision. The sunburst represents ASU’s location in Arizona, which is known for its sunny climate. The sunburst symbolizes the institution’s <a href="https://www.pngall.com/energy-png" target="_blank" rel="noopener">energy</a> and vitality. The bold lettering represents ASU’s strength and excellence in academics, research, and innovation. The color maroon is associated with passion, confidence, and determination, while gold is associated with excellence, luxury, and <a href="https://www.pngall.com/success-png" target="_blank" rel="noopener">success</a>. The combination of maroon and gold represents ASU’s identity and its commitment to excellence.</p>
+<h2>Uses of ASU Logo</h2>
+<p>The ASU logo is used in a variety of ways to represent the institution’s identity and branding. The logo is used on all official <a href="https://www.pngall.com/communication-png" target="_blank" rel="noopener">communication</a> materials, including letterheads, <a href="https://www.pngall.com/business-png" target="_blank" rel="noopener">business</a> cards, brochures, and websites. The logo is also used on merchandise, including t-shirts, hats, and other promotional items. ASU departments and units are allowed to use the logo with permission and according to the established guidelines.</p>
+<h2>Guidelines for Using ASU Logo</h2>
+<p>ASU has established guidelines for the use of its logo to ensure that it is used correctly and consistently. The guidelines provide information on how to use the logo, including its size, placement, and colors. The guidelines also provide information on the usage of the logo in different contexts, including print, digital, and merchandise. The logo should always be used in its original form and not be modified or distorted in any way. ASU departments and units are required to obtain permission before using the logo and must follow the established guidelines.</p>
+<p>The Arizona State University (ASU) logo is an essential part of the institution’s branding and identity. The logo reflects ASU’s values, mission, and vision, and it represents the institution’s commitment to excellence, innovation, and sustainability. The logo has undergone several changes throughout its history, and the current logo was introduced in 2011. The logo features a sunburst with the letters “ASU” in bold lettering and is available in several colors. The logo is used in a variety of materials, including communication materials and merchandise. ASU has established guidelines for the use of its logo to ensure that it is used correctly and consistently.</p>
+<h3>Download Arizona State University (ASU) Logo PNG images transparent gallery</h3>
+
+		<style type="text/css">
+			#gallery-1 {
+				margin: auto;
+			}
+			#gallery-1 .gallery-item {
+				float: left;
+				margin-top: 10px;
+				text-align: center;
+				width: 33%;
+			}
+			#gallery-1 img {
+				border: 2px solid #cfcfcf;
+			}
+			#gallery-1 .gallery-caption {
+				margin-left: 0;
+			}
+			/* see gallery_shortcode() in wp-includes/media.php */
+		</style>
+		<div id='gallery-1' class='gallery galleryid-143880 gallery-columns-3 gallery-size-full'><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Picture"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144250'><div class="img_wrapper"><img width="3840" height="2160" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203840%202160'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Picture" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Picture.png" /><noscript><img width="3840" height="2160" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Picture.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Picture" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Picture</strong><br>Resolution: 3840 × 2160<br>Size: 338 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144250" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144271'><div class="img_wrapper"><img width="3600" height="2177" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203600%202177'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG.png" /><noscript><img width="3600" height="2177" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG</strong><br>Resolution: 3600 × 2177<br>Size: 163 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144271" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo Transparent"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144292'><div class="img_wrapper"><img width="2560" height="1976" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202560%201976'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo Transparent" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-Transparent.png" /><noscript><img width="2560" height="1976" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-Transparent.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo Transparent" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo Transparent</strong><br>Resolution: 2560 × 1976<br>Size: 181 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144292" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144306'><div class="img_wrapper"><img width="2342" height="762" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202342%20762'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo.png" /><noscript><img width="2342" height="762" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo</strong><br>Resolution: 2342 × 762<br>Size: 131 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144306" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon portrait'>
+				<a title="Arizona State University (ASU) Logo Background PNG"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144325'><div class="img_wrapper"><img width="1300" height="1562" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201300%201562'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo Background PNG" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-Background-PNG.png" /><noscript><img width="1300" height="1562" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-Background-PNG.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo Background PNG" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo Background PNG</strong><br>Resolution: 1300 × 1562<br>Size: 302 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144325" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo No Background"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144339'><div class="img_wrapper"><img width="2095" height="581" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202095%20581'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo No Background" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-No-Background.png" /><noscript><img width="2095" height="581" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-No-Background.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo No Background" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo No Background</strong><br>Resolution: 2095 × 581<br>Size: 57 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144339" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Background"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144349'><div class="img_wrapper"><img width="3840" height="2160" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203840%202160'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Background" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Background.png" /><noscript><img width="3840" height="2160" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Background.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Background" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Background</strong><br>Resolution: 3840 × 2160<br>Size: 27 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144349" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Clipart"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144359'><div class="img_wrapper"><img width="2130" height="893" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202130%20893'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Clipart" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Clipart.png" /><noscript><img width="2130" height="893" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Clipart.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Clipart" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Clipart</strong><br>Resolution: 2130 × 893<br>Size: 71 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144359" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Cutout"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144367'><div class="img_wrapper"><img width="800" height="600" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20800%20600'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Cutout" decoding="async" data-lazy-srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout.png 800w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout-300x225.png 300w" data-lazy-sizes="(max-width: 800px) 100vw, 800px" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout.png" /><noscript><img width="800" height="600" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Cutout" decoding="async" srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout.png 800w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Cutout-300x225.png 300w" sizes="(max-width: 800px) 100vw, 800px" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Cutout</strong><br>Resolution: 800 × 600<br>Size: 32 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144367" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG File"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144377'><div class="img_wrapper"><img width="901" height="689" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20901%20689'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG File" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-File.png" /><noscript><img width="901" height="689" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-File.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG File" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG File</strong><br>Resolution: 901 × 689<br>Size: 37 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144377" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Free Image"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144390'><div class="img_wrapper"><img width="2843" height="769" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202843%20769'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Free Image" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Free-Image.png" /><noscript><img width="2843" height="769" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Free-Image.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Free Image" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Free Image</strong><br>Resolution: 2843 × 769<br>Size: 69 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144390" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG HD Image"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144397'><div class="img_wrapper"><img width="3840" height="2160" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203840%202160'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG HD Image" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-HD-Image.png" /><noscript><img width="3840" height="2160" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-HD-Image.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG HD Image" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG HD Image</strong><br>Resolution: 3840 × 2160<br>Size: 20 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144397" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Image File"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144402'><div class="img_wrapper"><img width="3516" height="1165" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203516%201165'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image File" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-File.png" /><noscript><img width="3516" height="1165" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-File.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image File" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Image File</strong><br>Resolution: 3516 × 1165<br>Size: 104 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144402" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Image HD"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144411'><div class="img_wrapper"><img width="300" height="300" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20300'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image HD" decoding="async" data-lazy-srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD.png 300w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD-180x180.png 180w" data-lazy-sizes="(max-width: 300px) 100vw, 300px" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD.png" /><noscript><img width="300" height="300" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image HD" decoding="async" srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD.png 300w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image-HD-180x180.png 180w" sizes="(max-width: 300px) 100vw, 300px" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Image HD</strong><br>Resolution: 300 × 300<br>Size: 28 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144411" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Image"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144418'><div class="img_wrapper"><img width="300" height="223" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20300%20223'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image.png" /><noscript><img width="300" height="223" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Image.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Image" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Image</strong><br>Resolution: 300 × 223<br>Size: 12 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144418" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Images HD"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144427'><div class="img_wrapper"><img width="1300" height="448" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201300%20448'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Images HD" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Images-HD.png" /><noscript><img width="1300" height="448" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Images-HD.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Images HD" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Images HD</strong><br>Resolution: 1300 × 448<br>Size: 104 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144427" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Images"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144436'><div class="img_wrapper"><img width="3840" height="2160" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%203840%202160'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Images" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Images.png" /><noscript><img width="3840" height="2160" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Images.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Images" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Images</strong><br>Resolution: 3840 × 2160<br>Size: 23 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144436" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Photo"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144454'><div class="img_wrapper"><img width="2400" height="2400" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202400%202400'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Photo" decoding="async" data-lazy-srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo.png 2400w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo-180x180.png 180w" data-lazy-sizes="(max-width: 2400px) 100vw, 2400px" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo.png" /><noscript><img width="2400" height="2400" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Photo" decoding="async" srcset="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo.png 2400w, https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photo-180x180.png 180w" sizes="(max-width: 2400px) 100vw, 2400px" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Photo</strong><br>Resolution: 2400 × 2400<br>Size: 554 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144454" target="blank" class="download">Download</a></dd></dl><br style="clear: both" /><dl class='gallery-item'>
+			<dt class='gallery-icon landscape'>
+				<a title="Arizona State University (ASU) Logo PNG Photos"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144459'><div class="img_wrapper"><img width="2560" height="761" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%202560%20761'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Photos" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photos.png" /><noscript><img width="2560" height="761" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Photos.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Photos" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Photos</strong><br>Resolution: 2560 × 761<br>Size: 114 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144459" target="blank" class="download">Download</a></dd></dl><dl class='gallery-item'>
+			<dt class='gallery-icon portrait'>
+				<a title="Arizona State University (ASU) Logo PNG Pic"  href='https://www.pngall.com/arizona-state-university-asulogo-png/download/144466'><div class="img_wrapper"><img width="659" height="900" src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20659%20900'%3E%3C/svg%3E" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Pic" decoding="async" data-lazy-src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Pic.png" /><noscript><img width="659" height="900" src="https://www.pngall.com/wp-content/uploads/15/Arizona-State-University-ASU-Logo-PNG-Pic.png" class="attachment-full size-full" alt="Arizona State University (ASU) Logo PNG Pic" decoding="async" /></noscript></div></a>
+			</dt><strong><dd class="wp-caption-text gallery-caption">Arizona State University (ASU) Logo PNG Pic</strong><br>Resolution: 659 × 900<br>Size: 49 KB<br>Image Format: .png<br><a href="https://www.pngall.com/arizona-state-university-asulogo-png/download/144466" target="blank" class="download">Download</a></dd></dl>
+			<br style='clear: both' />
+		</div>
+
+
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>											</div><!-- .entry-content -->
+									 
+				<div class="clear"></div>
+			</article><!-- #post -->
+							<h3>Related PNG:</h3>
+<!-- relpost-thumb-wrapper --><div class="relpost-thumb-wrapper"><!-- filter-class --><div class="relpost-thumb-container"><div style="clear: both"></div><div style="clear: both"></div><!-- relpost-block-container --><div class="relpost-block-container"><a href="https://www.pngall.com/computer-png/"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Computer PNG Photo" style="background: transparent url(https://www.pngall.com/wp-content/uploads/13/Computer-PNG-Photo-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Computer PNG Transparent Images</div></div></a><a href="https://www.pngall.com/rays-of-light-png/"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Rays Of Light PNG Photo" style="background: transparent url(https://www.pngall.com/wp-content/uploads/15/Rays-Of-Light-PNG-Photo-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Rays Of Light PNG Transparent Images</div></div></a><a href="https://www.pngall.com/paintball-splatter-png/"class="relpost-block-single" ><div class="relpost-custom-block-single" style="width: 180px; height: 255px;"><div class="relpost-block-single-image" alt="Paintball Splatter PNG Photos" style="background: transparent url(https://www.pngall.com/wp-content/uploads/15/Paintball-Splatter-PNG-Photos-180x180.png) no-repeat scroll 0% 0%; width: 180px; height: 180px;"></div><div class="relpost-block-single-text"  style="font-family: Arial;  font-size: 16px;  color: #333333;">Paintball Splatter PNG Transparent Images</div></div></a></div><!-- close relpost-block-container --><div style="clear: both"></div></div><!-- close filter class --></div><!-- close relpost-thumb-wrapper -->					  		
+<!-- BEGIN #comments -->
+<div id="comments">
+
+			<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">Leave a Comment <small><a  id="cancel-comment-reply-link" href="/arizona-state-university-asulogo-png/#respond" style="display:none;">Cancel Reply</a></small></h3><form action="https://www.pngall.com/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-form-comment"><textarea autocomplete="new-password"  id="a3685c344e"  name="a3685c344e"   cols="45" rows="8" aria-required="true"></textarea><textarea id="comment" aria-label="hp-comment" aria-hidden="true" name="comment" autocomplete="new-password" style="padding:0 !important;clip:rect(1px, 1px, 1px, 1px) !important;position:absolute !important;white-space:nowrap !important;height:1px !important;width:1px !important;overflow:hidden !important;" tabindex="-1"></textarea><script type="rocketlazyloadscript" data-noptimize>document.getElementById("comment").setAttribute( "id", "a98d56c0fb10b9e0031252c36cc4dae2" );document.getElementById("a3685c344e").setAttribute( "id", "comment" );</script></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required="required" /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="text" value="" size="30" maxlength="100" autocomplete="email" required="required" /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="text" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<div class="c4wp_captcha_field" style="margin-bottom: 10px;" data-nonce="7cd92ddc80" ><div id="c4wp_captcha_field_1" class="c4wp_captcha_field_div"><input type="hidden" name="g-recaptcha-response" class="c4wp_response" aria-label="do not use" aria-readonly="true" value=""/></div></div><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Submit Comment" /> <input type='hidden' name='comment_post_ID' value='143880' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p></form>	</div><!-- #respond -->
+	
+		
+<!-- #comments -->
+</div> 	
+		  			  		
+			
+	</div><!-- #content -->
+
+
+	<div id="sidebar">
+	
+				
+			<div class="widget entry-meta entry-header">
+			
+				                 
+	            <span class="entry-views"><i class="icon-camera"></i> 62 Total Views</span> 
+				
+				<span class="entry-categories"><i class="icon-folder-close"></i> <a href="https://www.pngall.com/category/png-library/" rel="category tag">PNG Library</a> PNG</span>
+				
+								
+								
+				<div class="additional-info">	
+									</div><!-- .additional-info -->
+						
+			</div><!-- .entry-meta .entry-header -->
+				
+				
+		<aside id="search-2" class="widget widget_search"><h3 class="widget-title">Search</h3><div class="search-form">
+	<form action="https://www.pngall.com" id="searchform" method="get">
+		<input name="s" type="text" placeholder="Search this site..."></input>
+	</form>
+</div><!-- .search-form --></aside><aside id="custom_html-6" class="widget_text widget widget_custom_html"><h3 class="widget-title">Follow Us</h3><div class="textwidget custom-html-widget"><a href="https://www.facebook.com/pngall" class="fa fa-facebook" target="_blank" rel="noopener"></a>
+<a href="https://www.twitter.com/pngallimg" class="fa fa-twitter" target="_blank" rel="noopener"></a>
+<a href="https://feeds.feedburner.com/PNGAll" class="fa fa-rss" target="_blank" rel="noopener"></a>
+</div></aside><aside id="custom_html-17" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><p><center><span style="font-size:0.8em">Advertisements</span></center>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8822717667672157"
+     crossorigin="anonymous"></script>
+<!-- Vertical Responsive -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-8822717667672157"
+     data-ad-slot="2513367070"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></p></div></aside>
+		<aside id="recent-posts-2" class="widget widget_recent_entries">
+		<h3 class="widget-title">Latest PNG Images</h3>
+		<ul>
+											<li>
+					<a href="https://www.pngall.com/black-flag-png-transparent-images/">Black Flag PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/cherry-blossom-tree-png-transparent-images/">Cherry Blossom Tree PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/black-hat-png-transparent-images/">Black Hat PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/chest-tattoo-png-transparent-images/">Chest Tattoo PNG Transparent Images</a>
+									</li>
+					</ul>
+
+		</aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<h3 class="widget-title">Recent Posts</h3>
+		<ul>
+											<li>
+					<a href="https://www.pngall.com/black-flag-png-transparent-images/">Black Flag PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/cherry-blossom-tree-png-transparent-images/">Cherry Blossom Tree PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/black-hat-png-transparent-images/">Black Hat PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/chest-tattoo-png-transparent-images/">Chest Tattoo PNG Transparent Images</a>
+									</li>
+											<li>
+					<a href="https://www.pngall.com/banana-peel-png-transparent-images/">Banana Peel PNG Transparent Images</a>
+									</li>
+					</ul>
+
+		</aside>		
+	</div><!-- #sidebar -->
+	
+<div class="clear"></div>
+</div><!-- #main -->
+
+	<footer id="footer">
+				
+				<div id="copyright" class="container">
+				<div class="right">
+				&copy; 2016 - 2023 <a href="https://www.pngall.com">PNG All</a>. All rights reserved.              				</div><!-- .left -->
+				<div class="left">
+				
+					
+
+<a href="/">Home</a> | <a href="/cookie-policy">Cookie Policy</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms-conditions">Terms & Conditions</a> | <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a>
+				</div><!-- .right -->
+				<div class="clear"></div>
+		</div><!-- #copyright -->
+		
+	</footer><!-- #footer -->
+	
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-browser-checker-js-after'>
+"use strict";var _createClass=function(){function defineProperties(target,props){for(var i=0;i<props.length;i++){var descriptor=props[i];descriptor.enumerable=descriptor.enumerable||!1,descriptor.configurable=!0,"value"in descriptor&&(descriptor.writable=!0),Object.defineProperty(target,descriptor.key,descriptor)}}return function(Constructor,protoProps,staticProps){return protoProps&&defineProperties(Constructor.prototype,protoProps),staticProps&&defineProperties(Constructor,staticProps),Constructor}}();function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor))throw new TypeError("Cannot call a class as a function")}var RocketBrowserCompatibilityChecker=function(){function RocketBrowserCompatibilityChecker(options){_classCallCheck(this,RocketBrowserCompatibilityChecker),this.passiveSupported=!1,this._checkPassiveOption(this),this.options=!!this.passiveSupported&&options}return _createClass(RocketBrowserCompatibilityChecker,[{key:"_checkPassiveOption",value:function(self){try{var options={get passive(){return!(self.passiveSupported=!0)}};window.addEventListener("test",null,options),window.removeEventListener("test",null,options)}catch(err){self.passiveSupported=!1}}},{key:"initRequestIdleCallback",value:function(){!1 in window&&(window.requestIdleCallback=function(cb){var start=Date.now();return setTimeout(function(){cb({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-start))}})},1)}),!1 in window&&(window.cancelIdleCallback=function(id){return clearTimeout(id)})}},{key:"isDataSaverModeOn",value:function(){return"connection"in navigator&&!0===navigator.connection.saveData}},{key:"supportsLinkPrefetch",value:function(){var elem=document.createElement("link");return elem.relList&&elem.relList.supports&&elem.relList.supports("prefetch")&&window.IntersectionObserver&&"isIntersecting"in IntersectionObserverEntry.prototype}},{key:"isSlowConnection",value:function(){return"connection"in navigator&&"effectiveType"in navigator.connection&&("2g"===navigator.connection.effectiveType||"slow-2g"===navigator.connection.effectiveType)}}]),RocketBrowserCompatibilityChecker}();
+</script>
+<script type='text/javascript' id='rocket-preload-links-js-extra'>
+/* <![CDATA[ */
+var RocketPreloadLinksConfig = {"excludeUris":"\/adv1\/|\/monetization.js|\/(.+\/)?feed\/?.+\/?|\/(?:.+\/)?embed\/|\/(index\\.php\/)?wp\\-json(\/.*|$)|\/wp-admin\/|\/logout\/|\/wp-login.php","usesTrailingSlash":"1","imageExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif","fileExt":"jpg|jpeg|gif|png|tiff|bmp|webp|avif|php|pdf|html|htm","siteUrl":"https:\/\/www.pngall.com","onHoverDelay":"100","rateThrottle":"3"};
+/* ]]> */
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' id='rocket-preload-links-js-after'>
+(function() {
+"use strict";var r="function"==typeof Symbol&&"symbol"==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&&"function"==typeof Symbol&&e.constructor===Symbol&&e!==Symbol.prototype?"symbol":typeof e},e=function(){function i(e,t){for(var n=0;n<t.length;n++){var i=t[n];i.enumerable=i.enumerable||!1,i.configurable=!0,"value"in i&&(i.writable=!0),Object.defineProperty(e,i.key,i)}}return function(e,t,n){return t&&i(e.prototype,t),n&&i(e,n),e}}();function i(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}var t=function(){function n(e,t){i(this,n),this.browser=e,this.config=t,this.options=this.browser.options,this.prefetched=new Set,this.eventTime=null,this.threshold=1111,this.numOnHover=0}return e(n,[{key:"init",value:function(){!this.browser.supportsLinkPrefetch()||this.browser.isDataSaverModeOn()||this.browser.isSlowConnection()||(this.regex={excludeUris:RegExp(this.config.excludeUris,"i"),images:RegExp(".("+this.config.imageExt+")$","i"),fileExt:RegExp(".("+this.config.fileExt+")$","i")},this._initListeners(this))}},{key:"_initListeners",value:function(e){-1<this.config.onHoverDelay&&document.addEventListener("mouseover",e.listener.bind(e),e.listenerOptions),document.addEventListener("mousedown",e.listener.bind(e),e.listenerOptions),document.addEventListener("touchstart",e.listener.bind(e),e.listenerOptions)}},{key:"listener",value:function(e){var t=e.target.closest("a"),n=this._prepareUrl(t);if(null!==n)switch(e.type){case"mousedown":case"touchstart":this._addPrefetchLink(n);break;case"mouseover":this._earlyPrefetch(t,n,"mouseout")}}},{key:"_earlyPrefetch",value:function(t,e,n){var i=this,r=setTimeout(function(){if(r=null,0===i.numOnHover)setTimeout(function(){return i.numOnHover=0},1e3);else if(i.numOnHover>i.config.rateThrottle)return;i.numOnHover++,i._addPrefetchLink(e)},this.config.onHoverDelay);t.addEventListener(n,function e(){t.removeEventListener(n,e,{passive:!0}),null!==r&&(clearTimeout(r),r=null)},{passive:!0})}},{key:"_addPrefetchLink",value:function(i){return this.prefetched.add(i.href),new Promise(function(e,t){var n=document.createElement("link");n.rel="prefetch",n.href=i.href,n.onload=e,n.onerror=t,document.head.appendChild(n)}).catch(function(){})}},{key:"_prepareUrl",value:function(e){if(null===e||"object"!==(void 0===e?"undefined":r(e))||!1 in e||-1===["http:","https:"].indexOf(e.protocol))return null;var t=e.href.substring(0,this.config.siteUrl.length),n=this._getPathname(e.href,t),i={original:e.href,protocol:e.protocol,origin:t,pathname:n,href:t+n};return this._isLinkOk(i)?i:null}},{key:"_getPathname",value:function(e,t){var n=t?e.substring(this.config.siteUrl.length):e;return n.startsWith("/")||(n="/"+n),this._shouldAddTrailingSlash(n)?n+"/":n}},{key:"_shouldAddTrailingSlash",value:function(e){return this.config.usesTrailingSlash&&!e.endsWith("/")&&!this.regex.fileExt.test(e)}},{key:"_isLinkOk",value:function(e){return null!==e&&"object"===(void 0===e?"undefined":r(e))&&(!this.prefetched.has(e.href)&&e.origin===this.config.siteUrl&&-1===e.href.indexOf("?")&&-1===e.href.indexOf("#")&&!this.regex.excludeUris.test(e.href)&&!this.regex.images.test(e.href))}}],[{key:"run",value:function(){"undefined"!=typeof RocketPreloadLinksConfig&&new n(new RocketBrowserCompatibilityChecker({capture:!0,passive:!0}),RocketPreloadLinksConfig).init()}}]),n}();t.run();
+}());
+</script>
+<script type="rocketlazyloadscript" data-rocket-type='text/javascript' src='https://www.pngall.com/wp-includes/js/comment-reply.min.js?ver=6.1.1' id='comment-reply-js'></script>
+			<script type="rocketlazyloadscript"  id="c4wp-recaptcha-js" src="https://www.google.com/recaptcha/api.js?render=6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL&#038;hl=en"></script>
+			<script type="rocketlazyloadscript" id="c4wp-inline-js" data-rocket-type="text/javascript">
+				
+				( function( grecaptcha ) {
+
+					let c4wp_onloadCallback = function() {
+						for ( var i = 0; i < document.forms.length; i++ ) {
+
+							let form = document.forms[i];
+							let captcha_div = form.querySelector( '.c4wp_captcha_field_div:not(.rendered)' );
+							let jetpack_sso = form.querySelector( '#jetpack-sso-wrap' );
+
+							if ( null === captcha_div ) {
+								continue;
+							}
+							if ( !( captcha_div.offsetWidth || captcha_div.offsetHeight || captcha_div.getClientRects().length ) ) {						    	
+								if ( jetpack_sso == null && jetpack_sso.length == 0 && ! form.classList.contains( 'woocommerce-form-login' ) ) {
+									continue;
+								}
+							}
+
+							var woo_register = form.getElementsByClassName( 'woocommerce-form-register__submit' );
+							var woo_ppc      = form.querySelector('#ppc-button-ppcp-gateway');
+							
+							if ( woo_ppc != null &&  woo_ppc.length ) {
+								woo_ppc.addEventListener( 'click', function ( event ) {
+									if ( form.classList.contains( 'c4wp_verify_underway' ) ) {
+										return true;
+									} else {
+										logSubmit( event, 'wc_login', form );
+									}
+								});
+							} else if ( woo_register != null && woo_register.length ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );
+									form.classList.add( 'c4wp_v3_init' );
+								});
+
+								if ( captcha_div.parentElement.getAttribute('data-c4wp-use-ajax') == 'true' ) {
+									form.addEventListener( 'submit', function( event ) {
+										if ( form.classList.contains( 'c4wp_v2_fallback_active' ) ) {
+											return true;
+										} else {
+											logSubmit( event, 'wc_reg', form );
+										}
+									});
+								}
+							}
+							// is WC Checkout?
+							else if ( form.classList.contains( 'checkout' ) ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );	
+									form.classList.add( 'c4wp_v3_init' );
+								});
+								
+								if ( typeof jQuery !== 'undefined' && jQuery( captcha_div ).parent().attr( 'data-c4wp-use-ajax' ) == 'true' ) {
+									jQuery( 'form.checkout' ).on( 'checkout_place_order', function( event ) {
+										if ( jQuery( form ).hasClass( 'c4wp_v2_fallback_active' ) ) {
+											return true;
+										} else {
+											logSubmit( event, 'wc_checkout', form );
+											return false;
+										}
+									});
+								}
+							// is WC Login?
+							} else if ( form.classList.contains( 'woocommerce-form-login' )  ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );	
+								});
+
+								if ( captcha_div.parentElement.getAttribute('data-c4wp-use-ajax') == 'true' ) {
+									const searchElement = form.querySelector( '.woocommerce-form-login__submit' );
+									searchElement.addEventListener( 'click', function ( event ) {
+										if ( form.classList.contains( 'c4wp_verify_underway' ) ) {
+											return true;
+										} else {
+											logSubmit( event, 'wc_login', form );
+										}
+									});
+								}
+
+							} else if ( form.classList.contains( 'lost_reset_password' ) ) {
+								const searchElement = form.querySelector( '.lost_reset_password button[type="submit"]' );
+								searchElement.addEventListener( 'click', function ( event ) {
+									if ( form.classList.contains( 'c4wp_verify_underway' ) ) {
+										return true;
+									} else {
+										logSubmit( event, 'wc_reset_pass', form );
+									}
+								});
+
+							// is CF7?
+							} else if ( form.classList.contains( 'wpcf7-form' ) ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );	
+								});
+								if ( captcha_div.parentElement.getAttribute('data-c4wp-use-ajax') == 'true' ) {
+									const searchElement = form.querySelector( '.wpcf7-submit' );
+									searchElement.addEventListener( 'click', function ( event ) {
+										logSubmit( event, 'cf7', form );
+									});
+								}
+							} else if ( form.getAttribute('id') == 'resetpassform' ) {
+								const searchElement = document.querySelector( '#wp-submit' );
+								searchElement.addEventListener( 'click', function ( event ) {
+									// We take over the submit event, so fill this hiddne field.
+									const pass1 = document.querySelector( '#pass1' );
+									const pass2 = document.querySelector( '#pass2' );
+									pass2.setAttribute( 'value', pass1.value );	
+									logSubmit( event, 'reset_pw_form', form );
+								});
+							} else if ( form.getAttribute('id') == 'signup-form' && form.parentElement.parentElement.getAttribute('id') == 'buddypress' || form.getAttribute('id') == 'create-group-form' ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );	
+								});
+
+							} else if ( form.parentElement.classList.contains( 'gform_wrapper' ) ) {
+								// Execute early to ensure response is populated.
+								grecaptcha.execute(
+									'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+								).then( function( data ) {
+									var responseElem = form.querySelector( '.c4wp_response' );
+									responseElem.setAttribute( 'value', data );	
+								});
+
+								var GFsearchElement = form.querySelector( 'input[type=submit]' );
+
+								GFsearchElement.addEventListener( 'click', function ( event ) {	
+									logSubmit( event, 'gf', form );
+								});
+
+							} else {
+								if ( captcha_div.parentElement.getAttribute('data-c4wp-use-ajax') != 'true' ) {
+									// Execute early to ensure response is populated.
+									grecaptcha.execute(
+										'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+									).then( function( data ) {
+										var responseElem = form.querySelector( '.c4wp_response' );
+										responseElem.setAttribute( 'value', data );	
+									});
+								} else {
+
+									// Anything else.
+									form.addEventListener( 'submit', function ( event ) {
+										logSubmit( event, 'other', form );
+									});	
+								}						
+							}
+
+							function logSubmit( event, form_type = '', form ) {
+								if ( ! form.classList.contains( 'c4wp_v2_fallback_active' ) && ! form.classList.contains( 'c4wp_verified' ) ) {
+									event.preventDefault();
+									
+									try {
+										grecaptcha.execute(
+											'6LeRc08eAAAAAA5DaDqpkFecoSjQjtTQAFcikUHL',
+										).then( function( data ) {	
+											var responseElem = form.querySelector( '.c4wp_response' );
+											responseElem.setAttribute( 'value', data );	
+
+											
+											if ( typeof form.submit === 'function' ) {
+												form.submit();
+											} else {
+												HTMLFormElement.prototype.submit.call(form);
+											}
+
+											return true;
+										});
+									} catch (e) {
+
+									}
+								} else {
+									if ( typeof form.submit === 'function' ) {
+										form.submit();
+									} else {
+										HTMLFormElement.prototype.submit.call(form);
+									}
+									return true;
+								}
+							};
+						}
+					};
+
+					grecaptcha.ready( c4wp_onloadCallback );
+
+					//token is valid for 2 minutes, So get new token every after 1 minutes 50 seconds
+					setInterval(c4wp_onloadCallback, 110000);
+
+				} )( grecaptcha );
+			</script>
+			<script>window.lazyLoadOptions={elements_selector:"img[data-lazy-src],.rocket-lazyload,iframe[data-lazy-src]",data_src:"lazy-src",data_srcset:"lazy-srcset",data_sizes:"lazy-sizes",class_loading:"lazyloading",class_loaded:"lazyloaded",threshold:300,callback_loaded:function(element){if(element.tagName==="IFRAME"&&element.dataset.rocketLazyload=="fitvidscompatible"){if(element.classList.contains("lazyloaded")){if(typeof window.jQuery!="undefined"){if(jQuery.fn.fitVids){jQuery(element).parent().fitVids()}}}}}};window.addEventListener('LazyLoad::Initialized',function(e){var lazyLoadInstance=e.detail.instance;if(window.MutationObserver){var observer=new MutationObserver(function(mutations){var image_count=0;var iframe_count=0;var rocketlazy_count=0;mutations.forEach(function(mutation){for(i=0;i<mutation.addedNodes.length;i++){if(typeof mutation.addedNodes[i].getElementsByTagName!=='function'){continue}
+if(typeof mutation.addedNodes[i].getElementsByClassName!=='function'){continue}
+images=mutation.addedNodes[i].getElementsByTagName('img');is_image=mutation.addedNodes[i].tagName=="IMG";iframes=mutation.addedNodes[i].getElementsByTagName('iframe');is_iframe=mutation.addedNodes[i].tagName=="IFRAME";rocket_lazy=mutation.addedNodes[i].getElementsByClassName('rocket-lazyload');image_count+=images.length;iframe_count+=iframes.length;rocketlazy_count+=rocket_lazy.length;if(is_image){image_count+=1}
+if(is_iframe){iframe_count+=1}}});if(image_count>0||iframe_count>0||rocketlazy_count>0){lazyLoadInstance.update()}});var b=document.getElementsByTagName("body")[0];var config={childList:!0,subtree:!0};observer.observe(b,config)}},!1)</script><script data-no-minify="1" async src="https://www.pngall.com/wp-content/plugins/wp-rocket/assets/js/lazyload/16.1/lazyload.min.js"></script><style>
+._bsa_flexbar .flexbar-logo img { background: none; }
+</style><script src="//m.servedby-buysellads.com/monetization.js" type="text/javascript"></script>
+<script>
+(function(){
+	if(typeof _bsa !== 'undefined' && _bsa) {
+  		// format, zoneKey, segment:value, options
+  		_bsa.init('flexbar', 'CK7DC2JU', 'placement:pngallcom');
+  	}
+})();
+</script>
+</body>
+</html>
+<!-- This website is like a Rocket, isn't it? Performance optimized by WP Rocket. Learn more: https://wp-rocket.me -->
